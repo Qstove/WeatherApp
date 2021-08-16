@@ -104,7 +104,7 @@ extension CitySearchViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView,
 				   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = CityCell()
+		let cell = tableView.dequeueReusableCell(withIdentifier: "CitySearchCell") as! CityCell
 		let cityElement = isFiltering ? filteredCityDict[indexPath.row] : cityDict[indexPath.row]
 		cell.configureCell(with: cityElement.value,
 						   cityId: cityElement.key)
